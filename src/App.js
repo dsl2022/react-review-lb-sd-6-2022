@@ -7,7 +7,7 @@ import DropDown from "./components/dropdown";
 function App() {
   const [isTicking, setIsTicking] = useState(true);
   const [payment, setPayment] = useState(0);
-
+  const [item, setItem] = useState("");
   function handler() {
     setPayment(payment + 10);
     setIsTicking(!isTicking);
@@ -15,8 +15,9 @@ function App() {
 
   return (
     <div className="App">
+      {item}
       <CaroucelsComponent />
-      <DropDown />
+      <DropDown setItem={setItem} />
       <div>{`you have paid $${payment}`}</div>
       {isTicking ? (
         <img
