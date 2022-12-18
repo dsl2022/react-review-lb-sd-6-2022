@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-
+import { Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import CaroucelsComponent from "./components/carousels";
+import DropDown from "./components/dropdown";
 function App() {
   const [isTicking, setIsTicking] = useState(true);
   const [payment, setPayment] = useState(0);
@@ -12,6 +15,8 @@ function App() {
 
   return (
     <div className="App">
+      <CaroucelsComponent />
+      <DropDown />
       <div>{`you have paid $${payment}`}</div>
       {isTicking ? (
         <img
@@ -24,10 +29,10 @@ function App() {
           alt="bomb-exploding"
         />
       )}
-      <button disabled={!isTicking} onClick={handler}>
+      <Button disabled={!isTicking} onClick={handler}>
         Switch
-      </button>
-      <button onClick={handler}>Pay 10 dollars</button>
+      </Button>
+      <Button onClick={handler}>Pay 10 dollars</Button>
     </div>
   );
 }
